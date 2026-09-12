@@ -1,35 +1,173 @@
 import json
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+
+sys.path.insert(
+    0,
+    str(
+        Path(__file__).resolve().parents[1] / "src"
+    ),
+)
+
 from reasoner import Reasoner
 
-EVAL_FILE = Path(__file__).resolve().parents[1] / "data/eval_questions.jsonl"
+
+EVAL_FILE = (
+    Path(__file__).resolve().parents[1]
+    / "data/eval_questions.jsonl"
+)
+
 
 def main():
+
     reasoner = Reasoner()
-    rows = [json.loads(x) for x in EVAL_FILE.read_text(encoding="utf-8").splitlines() if x.strip()]
+
+    rows = [
+        json.loads(line)
+        for line in EVAL_FILE.read_text(
+            encoding="utf-8"
+        ).splitlines()
+        if line.strip()
+    ]
+
     results = []
+
     for item in rows:
-        got = reasoner.ask(item["question"])
-        state_ok = got.state == item["expected_state"]
-        expected = set(item.get("expected_citations", []))
-        actual = set(got.citations)
-        citation_ok = expected.issubset(actual)
-        full_ok = state_ok and citation_ok
-        results.append((item, got, state_ok, full_ok))
-        print(f"{item['id']} | expected={item['expected_state']:<13} got={got.state:<13} state={'PASS' if state_ok else 'FAIL'} full={'PASS' if full_ok else 'FAIL'}")
+
+        result = reasoner.ask(
+            item["question"]
+        )
+
+        state_ok = (
+            result.state
+            == item["expected_state"]
+        )
+
+        expected_citations = set(
+            item.get(
+                "expected_citations",
+                [],
+            )
+        )
+
+        actual_citations = set(
+            result.citations
+        )
+
+        citation_ok = (
+            expected_citations
+            .issubset(actual_citations)
+        )
+
+        full_ok = (
+            state_ok
+            and citation_ok
+        )
+
+        results.append(
+            {
+                "item": item,
+                "result": result,
+                "state_ok": state_ok,
+                "citation_ok": citation_ok,
+                "full_ok": full_ok,
+            }
+        )
+
+        print(
+            f"{item['id']} | "
+            f"expected={item['expected_state']:<13} "
+            f"got={result.state:<13} "
+            f"state={'PASS' if state_ok else 'FAIL'} "
+            f"citations={'PASS' if citation_ok else 'FAIL'} "
+            f"full={'PASS' if full_ok else 'FAIL'}"
+        )
 
     total = len(results)
-    state_score = sum(x[2] for x in results)
-    full_score = sum(x[3] for x in results)
-    print("\n=== POLICY PROOF EVALUATION ===")
-    print(f"Questions:      {total}")
-    print(f"State accuracy: {state_score}/{total} = {state_score/total:.1%}")
-    print(f"Full score:     {full_score}/{total} = {full_score/total:.1%}")
-    for state in ("answers", "silent", "contradiction"):
-        subset = [x for x in results if x[0]["expected_state"] == state]
-        correct = sum(x[2] for x in subset)
-        print(f"{state:<14}: {correct}/{len(subset)} = {correct/len(subset):.1%}")
 
-if __name__ == "__main__": main()
+    state_correct = sum(
+        r["state_ok"]
+        for r in results
+    )
+
+    full_correct = sum(
+        r["full_ok"]
+        for r in results
+    )
+
+    citation_correct = sum(
+        r["citation_ok"]
+        for r in results
+    )
+
+    print()
+    print("=" * 50)
+    print("POLICY PROOF EVALUATION")
+    print("=" * 50)
+
+    print(f"Total questions : {total}")
+
+    print()
+
+    for state in (
+        "answers",
+        "silent",
+        "contradiction",
+    ):
+
+        subset = [
+            r
+            for r in results
+            if r["item"]["expected_state"]
+            == state
+        ]
+
+        correct = sum(
+            r["state_ok"]
+            for r in subset
+        )
+
+        percentage = (
+            correct / len(subset) * 100
+            if subset
+            else 0
+        )
+
+        label = {
+            "answers": "Answered",
+            "silent": "Not Covered",
+            "contradiction": "Contradiction",
+        }[state]
+
+        print(
+            f"{label:<15}: "
+            f"{correct}/{len(subset)} "
+            f"({percentage:.2f}%)"
+        )
+
+    print()
+
+    print(
+        f"State accuracy  : "
+        f"{state_correct}/{total} "
+        f"({state_correct / total:.2%})"
+    )
+
+    print(
+        f"Citation score  : "
+        f"{citation_correct}/{total} "
+        f"({citation_correct / total:.2%})"
+    )
+
+    print(
+        f"Full score      : "
+        f"{full_correct}/{total} "
+        f"({full_correct / total:.2%})"
+    )
+
+    print("=" * 50)
+
+
+if __name__ == "__main__":
+    main()
