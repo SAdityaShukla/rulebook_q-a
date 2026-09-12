@@ -12,7 +12,7 @@
 
 {"id":"A07","question":"What should a student do after missing an examination because of a sudden medical emergency?","expected_state":"answers","expected_citations":["academic_regulations.md#2.2"]}
 
-{"id":"A08","question":"Can the Academic Review Committee waive the laboratory attendance requirement?","expected_state":"answers","expected_citations":["academic_regulations.md#3.2"]}
+{"id":"A08","question":"What percentage of attendance is required for a theory course to be eligible for the End Semester Examination?","expected_state":"answers","expected_citations":["academic_regulations.md#3.2"]}
 
 {"id":"A09","question":"Are society funds allowed to be used for personal expenses of office bearers?","expected_state":"answers","expected_citations":["society_constitution.md#7"]}
 
