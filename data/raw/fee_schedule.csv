@@ -1,0 +1,9 @@
+semester,fee_component,payment_deadline,late_fee_per_week,max_late_fee,note
+Odd Semester,Tuition Fee,2026-08-15,₹500,"₹2,000",Normal semester tuition deadline
+Odd Semester,Hostel Fee,2026-08-10,₹300,"₹1,200",Applicable to allotted hostel residents
+Odd Semester,Examination Fee,2026-09-05,₹200,₹800,Pay before examination form closes
+Even Semester,Tuition Fee,2027-01-20,₹500,"₹2,000",Normal semester tuition deadline
+Even Semester,Hostel Fee,2027-01-15,₹300,"₹1,200",Applicable to allotted hostel residents
+Even Semester,Examination Fee,2027-02-10,₹200,₹800,Pay before examination form closes
+Policy Note,Refunds,,,,Refund eligibility is governed by the applicable withdrawal procedure.
+Policy Note,Fee Extension,,,,Extensions are discretionary unless another policy grants an entitlement.
