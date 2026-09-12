@@ -1,0 +1,42 @@
+{"id": "A01", "question": "What is the minimum attendance required for a theory course End Semester Examination?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#1.1"]}
+{"id": "A02", "question": "What is the minimum laboratory attendance requirement?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#1.4"]}
+{"id": "A03", "question": "How soon should a medical attendance application normally be submitted after returning?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#1.5"]}
+{"id": "A04", "question": "What should a student do if an attendance record appears incorrect?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#1.2"]}
+{"id": "A05", "question": "What is the maximum weekly late fee for tuition in the Odd Semester?", "expected_state": "answers", "expected_citations": ["fee_schedule.csv#row-1"]}
+{"id": "A06", "question": "Are overnight hostel guests permitted without authorization?", "expected_state": "answers", "expected_citations": ["hostel_handbook.pdf#4"]}
+{"id": "A07", "question": "What should a student do after missing an examination because of a sudden medical emergency?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#2.2"]}
+{"id": "A08", "question": "Can the Academic Review Committee waive the laboratory attendance requirement?", "expected_state": "answers", "expected_citations": ["academic_regulations.md#3.2"]}
+{"id": "A09", "question": "Are society funds allowed to be used for personal expenses of office bearers?", "expected_state": "answers", "expected_citations": ["society_constitution.md#7"]}
+{"id": "S01", "question": "What happens if I miss the End Semester Examination because of a family wedding?", "expected_state": "silent", "expected_citations": []}
+{"id": "S02", "question": "Can I bring a pet into my hostel room?", "expected_state": "silent", "expected_citations": []}
+{"id": "S03", "question": "Can I keep an aquarium in a hostel room?", "expected_state": "silent", "expected_citations": []}
+{"id": "S04", "question": "What is the minimum CGPA required to get a hostel room next semester?", "expected_state": "silent", "expected_citations": []}
+{"id": "S05", "question": "Can I reserve a hostel room for my cousin who is not a student?", "expected_state": "silent", "expected_citations": []}
+{"id": "S06", "question": "Does the university provide transport to students who miss an exam?", "expected_state": "silent", "expected_citations": []}
+{"id": "S07", "question": "Can I attend a different course's lecture to increase my attendance in my own course?", "expected_state": "silent", "expected_citations": []}
+{"id": "S08", "question": "Can a student with 72% theory attendance compensate by attending extra classes next semester?", "expected_state": "silent", "expected_citations": []}
+{"id": "S09", "question": "What happens to attendance when a student attends an unofficial student club meeting?", "expected_state": "silent", "expected_citations": []}
+{"id": "S10", "question": "Can a professor privately approve an attendance waiver over WhatsApp?", "expected_state": "silent", "expected_citations": []}
+{"id": "S11", "question": "Is attendance rounded from 74.6% to 75% for examination eligibility?", "expected_state": "silent", "expected_citations": []}
+{"id": "S12", "question": "Can a student miss an exam because of a family birthday and take it later?", "expected_state": "silent", "expected_citations": []}
+{"id": "S13", "question": "Is there a separate attendance threshold for students who commute from outside the city?", "expected_state": "silent", "expected_citations": []}
+{"id": "S14", "question": "Can a scholarship be transferred from one sibling to another?", "expected_state": "silent", "expected_citations": []}
+{"id": "S15", "question": "Does a scholarship cover hostel electricity charges?", "expected_state": "silent", "expected_citations": []}
+{"id": "S16", "question": "Can a society spend institutional funds on a private party?", "expected_state": "silent", "expected_citations": []}
+{"id": "S17", "question": "What is the maximum number of society members who can attend an off-campus event?", "expected_state": "silent", "expected_citations": []}
+{"id": "S18", "question": "Can a hostel resident install an air conditioner in their room?", "expected_state": "silent", "expected_citations": []}
+{"id": "S19", "question": "Does hostel curfew change automatically during weekends?", "expected_state": "silent", "expected_citations": []}
+{"id": "S20", "question": "Can a student receive a fee refund after graduating early?", "expected_state": "silent", "expected_citations": []}
+{"id": "S21", "question": "Can tuition late fees be waived automatically after a portal outage?", "expected_state": "silent", "expected_citations": []}
+{"id": "S22", "question": "Does the university allow cryptocurrency payments for fees?", "expected_state": "silent", "expected_citations": []}
+{"id": "S23", "question": "Can an internship outside India automatically waive all course attendance?", "expected_state": "silent", "expected_citations": []}
+{"id": "S24", "question": "Can emergency leave guarantee exemption from every assessment?", "expected_state": "silent", "expected_citations": []}
+{"id": "S25", "question": "How many days of annual vacation does the university provide to hostel residents?", "expected_state": "silent", "expected_citations": []}
+{"id": "C01", "question": "What should happen if I have 70% laboratory attendance but the committee says it can waive the requirement?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#1.4", "academic_regulations.md#3.2"]}
+{"id": "C02", "question": "Can the Academic Review Committee review a laboratory attendance shortage below 80%?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#1.4", "academic_regulations.md#3.2"]}
+{"id": "C03", "question": "Do the regulations give the committee power to waive the 80% laboratory attendance rule?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#1.4", "academic_regulations.md#3.2"]}
+{"id": "C04", "question": "Is the laboratory attendance rule absolute, or can the committee waive it?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#17.1", "academic_regulations.md#17.2"]}
+{"id": "C05", "question": "If one rule says there is no laboratory attendance exception and another says the committee can waive it, which should the student rely on?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#17.1", "academic_regulations.md#17.2"]}
+{"id": "C06", "question": "Does an attendance waiver automatically make a student ineligible for scholarship consideration?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#18.1", "academic_regulations.md#18.2"]}
+{"id": "C07", "question": "Can a student with an approved attendance waiver still be considered for a scholarship?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#18.1", "academic_regulations.md#18.2"]}
+{"id": "C08", "question": "Is a scholarship applicant automatically disqualified when their attendance requirement was waived?", "expected_state": "contradiction", "expected_citations": ["academic_regulations.md#18.1", "academic_regulations.md#18.2"]}
